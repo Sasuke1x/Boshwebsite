@@ -144,6 +144,32 @@ export default function StoreClient({ products, storePageContent }: StoreClientP
               />
             </div>
           )}
+          
+          {/* Shipping Info Banner */}
+          {(storePageContent?.shippingInfo || storePageContent?.returnPolicy) && (
+            <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6">
+              {storePageContent?.shippingInfo && (
+                <div className="mb-3">
+                  <h3 className="text-sm font-semibold text-amber-900 mb-1 flex items-center">
+                    📦 Shipping Information
+                  </h3>
+                  <p className="text-sm text-amber-800 whitespace-pre-line">
+                    {storePageContent.shippingInfo}
+                  </p>
+                </div>
+              )}
+              {storePageContent?.returnPolicy && (
+                <div>
+                  <h3 className="text-sm font-semibold text-amber-900 mb-1">
+                    🔄 Return Policy
+                  </h3>
+                  <p className="text-sm text-amber-800 whitespace-pre-line">
+                    {storePageContent.returnPolicy}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Product Grid - Chi Modu style - responsive */}

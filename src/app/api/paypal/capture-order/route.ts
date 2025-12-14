@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendOrderConfirmationEmail } from '@/lib/email';
+import { sendOrderConfirmationEmail, sendOrderNotificationToAdmin } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,22 +17,41 @@ export async function POST(request: NextRequest) {
     const captureData = await paypalResponse.json();
     
     if (paypalResponse.ok && captureData.status === 'COMPLETED') {
-      // Send confirmation email via Resend
+      const transactionId = captureData.purchase_units[0].payments.captures[0].id;
+      const shippingAddress = captureData.purchase_units[0]?.shipping?.address 
+        ? `${captureData.purchase_units[0].shipping.address.address_line_1 || ''}, ${captureData.purchase_units[0].shipping.address.admin_area_2 || ''}, ${captureData.purchase_units[0].shipping.address.admin_area_1 || ''} ${captureData.purchase_units[0].shipping.address.postal_code || ''}, ${captureData.purchase_units[0].shipping.address.country_code || ''}`
+        : undefined;
+      
+      // Send confirmation email to customer
       try {
         await sendOrderConfirmationEmail({
           to: customerEmail,
           orderDetails,
           paypalOrderId: orderId,
-          transactionId: captureData.purchase_units[0].payments.captures[0].id
+          transactionId
         });
       } catch (emailError) {
-        console.error('Email sending failed:', emailError);
+        console.error('Customer email sending failed:', emailError);
+        // Don't fail the entire transaction if email fails
+      }
+
+      // Send notification email to Bosh/admin
+      try {
+        await sendOrderNotificationToAdmin({
+          to: customerEmail,
+          orderDetails,
+          paypalOrderId: orderId,
+          transactionId,
+          shippingAddress
+        });
+      } catch (emailError) {
+        console.error('Admin notification email failed:', emailError);
         // Don't fail the entire transaction if email fails
       }
 
       return NextResponse.json({ 
         success: true, 
-        transactionId: captureData.purchase_units[0].payments.captures[0].id 
+        transactionId 
       });
     } else {
       return NextResponse.json({ error: 'Payment capture failed' }, { status: 400 });
