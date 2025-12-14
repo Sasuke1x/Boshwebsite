@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       // Send notification email to Bosh/admin
       try {
         await sendOrderNotificationToAdmin({
-          to: customerEmail,
+          customerEmail,
           orderDetails,
           paypalOrderId: orderId,
           transactionId,

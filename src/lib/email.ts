@@ -94,6 +94,14 @@ interface ContactFormData {
   message: string;
 }
 
+interface AdminOrderNotificationData {
+  customerEmail: string;
+  orderDetails: OrderDetails;
+  paypalOrderId: string;
+  transactionId: string;
+  shippingAddress?: string;
+}
+
 // Send order notification to Bosh/admin
 export async function sendOrderNotificationToAdmin({
   orderDetails,
@@ -101,7 +109,7 @@ export async function sendOrderNotificationToAdmin({
   paypalOrderId,
   transactionId,
   shippingAddress
-}: OrderConfirmationData & { shippingAddress?: string }) {
+}: AdminOrderNotificationData) {
   try {
     const adminEmail = process.env.ADMIN_EMAIL || process.env.RESEND_FROM_EMAIL || 'hello@boshanovart.com';
     
