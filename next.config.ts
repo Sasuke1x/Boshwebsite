@@ -23,9 +23,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  turbopack: {
-    root: '/Users/montellelemon/bosh website/boshnovart-portfolio',
-  },
 };
 
 export default nextConfig;

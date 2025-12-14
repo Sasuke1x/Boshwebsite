@@ -1,11 +1,8 @@
 import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
-import { PHOTO_CATEGORIES_QUERY } from '@/sanity/lib/queries';
 import PhotographyClient from './PhotographyClient';
 
 export default async function PhotographyPage() {
-  // Fetch all photos and categories from Sanity
-  const categories = await client.fetch(PHOTO_CATEGORIES_QUERY);
 
   // Get all photos across all categories
   const allPhotosQuery = `*[_type == "photo"] | order(order asc, year desc) {
