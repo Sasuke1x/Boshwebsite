@@ -76,16 +76,13 @@ export const video = defineType({
     select: {
       title: 'title',
       subtitle: 'duration',
-      youtubeId: 'youtubeId',
       category: 'category.name',
     },
-    prepare({ title, subtitle, youtubeId, category }) {
+    prepare({ title, subtitle, category }) {
       return {
         title,
         subtitle: `${category || 'Uncategorized'}${subtitle ? ` • ${subtitle}` : ''}`,
-        media: youtubeId
-          ? `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`
-          : undefined,
+        media: PlayIcon,
       }
     },
   },
