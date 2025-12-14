@@ -1,0 +1,59 @@
+# Environment Variables Setup
+# Create a file called '.env.local' in your project root and add these variables:
+
+# PayPal Configuration
+# Get these from https://developer.paypal.com/
+NEXT_PUBLIC_PAYPAL_CLIENT_ID=your_paypal_client_id_here
+PAYPAL_CLIENT_SECRET=your_paypal_client_secret_here
+PAYPAL_ENVIRONMENT=sandbox
+# Change PAYPAL_ENVIRONMENT to 'production' when going live
+
+# Resend Email Configuration  
+# Get API key from https://resend.com/
+RESEND_API_KEY=re_your_resend_api_key_here
+RESEND_FROM_EMAIL=hello@boshanovart.com
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+# Change to your actual domain when deploying: https://boshanovart.com
+
+# Sanity Configuration
+NEXT_PUBLIC_SANITY_PROJECT_ID=u1jfi7ga
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2024-12-13
+
+# Sanity API Tokens
+# Optional: For draft mode and Visual Editing
+# SANITY_API_READ_TOKEN=your_sanity_read_token_here
+
+# REQUIRED for bulk photo uploads via script:
+# Get from https://www.sanity.io/manage → Your Project → API → Tokens
+# Permission: "Editor" or "Administrator"
+SANITY_API_WRITE_TOKEN=your_write_token_here
+
+# Optional: Additional email settings
+ADMIN_EMAIL=admin@boshanovart.com
+SUPPORT_EMAIL=support@boshanovart.com
+
+# Instructions:
+# 1. Copy this content
+# 2. Create a new file called '.env.local' in your project root
+# 3. Paste this content into .env.local
+# 4. Replace the placeholder values with your actual API keys
+# 5. Never commit .env.local to version control (it should be in .gitignore)
+
+# PayPal Setup Steps:
+# 1. Go to https://developer.paypal.com/
+# 2. Log in with your PayPal account
+# 3. Create a new app (choose "Default Application" type)
+# 4. Copy the Client ID and Client Secret
+# 5. For testing, use 'sandbox' environment
+# 6. For production, use 'production' environment
+
+# Resend Setup Steps:
+# 1. Go to https://resend.com/
+# 2. Sign up for an account
+# 3. Go to API Keys section
+# 4. Create a new API key
+# 5. Copy the API key (starts with 're_')
+# 6. Verify your domain in Resend dashboard for sending emails

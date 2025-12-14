@@ -1,0 +1,132 @@
+import { Photo, Video, PhotoCategory, VideoCategory } from '@/types';
+
+export const photoCategories: PhotoCategory[] = [
+  { id: '1', name: 'Portraits', slug: 'portraits', description: 'Professional portrait photography' },
+  { id: '2', name: 'Events', slug: 'events', description: 'Event and celebration photography' },
+  { id: '3', name: 'Commercial', slug: 'commercial', description: 'Commercial and brand photography' },
+  { id: '4', name: 'Street Photography', slug: 'street', description: 'Urban and street photography' },
+  { id: '5', name: 'Fine Art', slug: 'fine-art', description: 'Artistic and creative photography' },
+];
+
+export const videoCategories: VideoCategory[] = [
+  { id: '1', name: 'Music Videos', slug: 'music-videos', description: 'Music video productions' },
+  { id: '2', name: 'Commercial', slug: 'commercial', description: 'Commercial video content' },
+  { id: '3', name: 'Documentary', slug: 'documentary', description: 'Documentary filmmaking' },
+  { id: '4', name: 'Personal Projects', slug: 'personal', description: 'Personal creative projects' },
+];
+
+// Sample photos - replace with actual content
+export const samplePhotos: Photo[] = [
+  {
+    id: '1',
+    title: 'Urban Portrait',
+    category: 'portraits',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1200&fit=crop',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop',
+    location: 'New York City',
+    year: 2024,
+    description: 'Professional portrait in urban setting',
+    altText: 'Professional portrait of a person in urban environment',
+    width: 800,
+    height: 1200,
+  },
+  {
+    id: '2',
+    title: 'Street Scene',
+    category: 'street',
+    imageUrl: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop',
+    location: 'Brooklyn',
+    year: 2024,
+    description: 'Candid street photography moment',
+    altText: 'Street photography scene in Brooklyn',
+    width: 1200,
+    height: 800,
+  },
+  {
+    id: '3',
+    title: 'Commercial Product',
+    category: 'commercial',
+    imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=800&fit=crop',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop',
+    location: 'Studio',
+    year: 2024,
+    description: 'Product photography for commercial client',
+    altText: 'Commercial product photography',
+    width: 1200,
+    height: 800,
+  },
+  {
+    id: '4',
+    title: 'Event Celebration',
+    category: 'events',
+    imageUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop',
+    location: 'Manhattan',
+    year: 2024,
+    description: 'Corporate event photography',
+    altText: 'Corporate event celebration photography',
+    width: 1200,
+    height: 800,
+  },
+  {
+    id: '5',
+    title: 'Fine Art Composition',
+    category: 'fine-art',
+    imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=1200&fit=crop',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop',
+    location: 'Gallery',
+    year: 2024,
+    description: 'Abstract fine art photography',
+    altText: 'Fine art photography composition',
+    width: 1200,
+    height: 1200,
+  },
+  {
+    id: '6',
+    title: 'Portrait Session',
+    category: 'portraits',
+    imageUrl: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=800&h=1200&fit=crop',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=600&fit=crop',
+    location: 'Studio',
+    year: 2024,
+    description: 'Professional studio portrait',
+    altText: 'Professional studio portrait session',
+    width: 800,
+    height: 1200,
+  },
+];
+
+// Sample videos - replace with actual YouTube IDs
+export const sampleVideos: Video[] = [
+  {
+    id: '1',
+    title: 'Music Video - Sample Artist',
+    category: 'music-videos',
+    youtubeId: 'dQw4w9WgXcQ', // Sample YouTube ID
+    thumbnailUrl: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+    description: 'Creative music video production',
+    year: 2024,
+    duration: '3:42',
+  },
+  {
+    id: '2',
+    title: 'Commercial - Brand Campaign',
+    category: 'commercial',
+    youtubeId: 'dQw4w9WgXcQ',
+    thumbnailUrl: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+    description: 'Commercial video for brand campaign',
+    year: 2024,
+    duration: '1:30',
+  },
+  {
+    id: '3',
+    title: 'Documentary Short',
+    category: 'documentary',
+    youtubeId: 'dQw4w9WgXcQ',
+    thumbnailUrl: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+    description: 'Short documentary film',
+    year: 2024,
+    duration: '15:20',
+  },
+];

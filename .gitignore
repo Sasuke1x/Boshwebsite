@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# uploads folder (keep README, ignore images)
+/uploads/*
+!/uploads/README.md
