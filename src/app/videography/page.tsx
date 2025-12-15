@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
 import VideographyClient from './VideographyClient';
 
+// Revalidate every 60 seconds to get fresh data
+export const revalidate = 60;
+
 // Helper function to extract YouTube ID from URL or return the ID itself
 function extractYouTubeId(input: string): string {
   if (!input) return '';

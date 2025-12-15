@@ -4,6 +4,9 @@ import { client } from '@/sanity/lib/client';
 import { PRODUCTS_QUERY, STORE_PAGE_QUERY } from '@/sanity/lib/queries';
 import StoreClient from './StoreClient';
 
+// Revalidate every 60 seconds to get fresh data
+export const revalidate = 60;
+
 export default async function StorePage() {
   // Fetch store page content and products from Sanity
   const [storePageContent, products] = await Promise.all([

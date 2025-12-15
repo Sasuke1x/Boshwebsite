@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
 import PhotographyClient from './PhotographyClient';
 
+// Revalidate every 60 seconds to get fresh data
+export const revalidate = 60;
+
 export default async function PhotographyPage() {
 
   // Get all photos across all categories

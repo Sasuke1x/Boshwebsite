@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { Calendar, MapPin, ArrowLeft } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
+// Revalidate every 60 seconds to get fresh data
+export const revalidate = 60;
+
 interface EventPageProps {
   params: Promise<{
     slug: string;

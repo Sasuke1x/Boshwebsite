@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { Calendar, MapPin, Image as ImageIcon } from 'lucide-react';
 
+// Revalidate every 60 seconds to get fresh data
+export const revalidate = 60;
+
 export default async function EventsPage() {
   // Fetch events page content and all events
   const [eventsPageContent, events] = await Promise.all([

@@ -3,6 +3,9 @@ import { client } from '@/sanity/lib/client';
 import { CONTACT_PAGE_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/lib/queries';
 import ContactClient from './ContactClient';
 
+// Revalidate every 60 seconds to get fresh data
+export const revalidate = 60;
+
 export default async function ContactPage() {
   // Fetch Contact page content and Site Settings from Sanity
   const [contactData, siteSettings] = await Promise.all([

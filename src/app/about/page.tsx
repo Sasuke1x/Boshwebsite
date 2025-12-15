@@ -4,6 +4,9 @@ import { client } from '@/sanity/lib/client';
 import { ABOUT_PAGE_QUERY } from '@/sanity/lib/queries';
 import { PortableText } from 'next-sanity';
 
+// Revalidate every 60 seconds to get fresh data
+export const revalidate = 60;
+
 export default async function AboutPage() {
   // Fetch About page content from Sanity
   const aboutData = await client.fetch(ABOUT_PAGE_QUERY);
